@@ -1,0 +1,10 @@
+@import "app/styles/index";
+
+.field-error {
+  margin-top: 6px;
+  color: $error-color;
+  font-size: 12px;
+  font-family: $primary-font-family;
+  text-align: right;
+  width: 100%;
+}

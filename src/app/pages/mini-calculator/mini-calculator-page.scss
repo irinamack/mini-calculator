@@ -1,0 +1,54 @@
+@import "app/styles/index";
+
+.mini-calculator-page {
+  display: flex;
+  padding: $gutter * 4;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($contrast-1, 0.1);
+  border-radius: $border-radius;
+  width: 425px;
+  height: 400px;
+  margin: $gutter * 10 auto auto;
+
+  .overlay {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($grey, 0.8);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    .popover {
+      position: absolute;
+      background-color: $white;
+      box-shadow: 0 0 25px 0 rgba(216, 208, 237, 0.24);
+      z-index: 3;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .text {
+        font-size: 20px;
+        font-weight: 500;
+        
+        span {
+          color: $contrast-1;
+        }
+      }
+    }
+  }
+
+  .form-name {
+    font-size: 24px;
+    margin-bottom: $gutter * 6;
+  }
+}

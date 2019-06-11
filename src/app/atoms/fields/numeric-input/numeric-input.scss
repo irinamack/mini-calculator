@@ -1,0 +1,33 @@
+@import 'app/styles/index';
+
+.numeric-input {
+
+    &.has-error {
+
+        input {
+            border-color: $error-color !important;
+        }
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        height: 48px;
+        border: 1px solid $grey;
+        border-radius: $border-radius;
+        background-color: white;
+        font-family: $primary-font-family;
+        font-size: 14px;
+        font-weight: normal;
+        color: $secondary-color;
+        transition: border-color 0.2s;
+        padding-left: $gutter * 2;
+        outline: none;
+        -webkit-appearance: none;
+
+        &:focus {
+            border-color: $secondary-color;
+        }
+    }
+}
