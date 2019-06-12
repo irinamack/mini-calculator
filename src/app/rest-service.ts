@@ -1,8 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-const randomNumber = Math.floor((Math.random() * 100) + 1);
-
 class RestService {
     private readonly axiosInstance: AxiosInstance;
     public readonly baseURL = '/';
@@ -14,18 +12,24 @@ class RestService {
 
         const mock = new MockAdapter(this.axiosInstance);
 
-        mock.onGet(/\/person\/\d+/).reply(200, {
-            val1: randomNumber,
-            val2: randomNumber,
+        mock.onGet(/\/person\/\d+/).reply(() => {
+            return [200, {
+                val1: Math.floor((Math.random() * 100) + 1),
+                val2: Math.floor((Math.random() * 100) + 1),
+            }];
         });
 
-        mock.onGet(/\/facility\/\d+/).reply(200, {
-            val3: randomNumber,
-            val4: randomNumber,
+        mock.onGet(/\/facility\/\d+/).reply(() => {
+            return [200, {
+                val3: Math.floor((Math.random() * 100) + 1),
+                val4: Math.floor((Math.random() * 100) + 1),
+            }];
         });
 
-        mock.onGet(/\/exposure\/\d+/).reply(200, {
-            val5: randomNumber,
+        mock.onGet(/\/exposure\/\d+/).reply(() => {
+            return [200, {
+                val5: Math.floor((Math.random() * 100) + 1),
+            }];
         });
 
         this.axiosInstance.interceptors.response.use(response => {
