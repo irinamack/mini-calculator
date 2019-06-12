@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 import { assocPath } from 'ramda';
 
 import {
-    FETCH_FIRST_TWO_VALUES_SUCCESS,
+    MULTIPLY_TWO_VALUES_SUCCESS,
 } from './constants';
 
 export interface MiniCalculatorState {
@@ -17,7 +17,7 @@ function getInitialState(): MiniCalculatorState {
 
 export const reducer = handleActions<MiniCalculatorState>(
     {
-        [FETCH_FIRST_TWO_VALUES_SUCCESS]: (state, { payload }) => assocPath(['answer'], payload, state),
+        [MULTIPLY_TWO_VALUES_SUCCESS]: (state, { payload }) => assocPath(['answer'], payload, state),
     },
     getInitialState(),
 );

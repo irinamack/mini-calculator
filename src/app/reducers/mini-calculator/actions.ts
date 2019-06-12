@@ -1,17 +1,13 @@
 import { Dispatch } from 'redux';
 import { createAction } from 'redux-actions';
 import ApiClient from 'app/api';
-import {
-    FETCH_FIRST_TWO_VALUES_SUCCESS,
-} from './constants';
 
-const fetchFirstTwoValuesSuccess = createAction<any>(FETCH_FIRST_TWO_VALUES_SUCCESS);
+import { MiniCalculatorFormData } from 'app/pages/mini-calculator/mini-calculator-form';
+import { MULTIPLY_TWO_VALUES_SUCCESS } from './constants';
 
-interface AmountModel {
-    amount: number
-}
+const multipliedValuesSuccess = createAction<any>(MULTIPLY_TWO_VALUES_SUCCESS);
 
-export const multipliedValue = (value: AmountModel) =>
+export const multipliedValue = (value: MiniCalculatorFormData) =>
     async (dispatch: Dispatch, getState: any, api: ApiClient) => {
         try {
             await api.getValues(value.amount).then(response =>
@@ -22,7 +18,7 @@ export const multipliedValue = (value: AmountModel) =>
                     const facility = response[0].data.val3;
                     const exposure = response[1].data.val5;
                     const data = facility * exposure;
-                    dispatch(fetchFirstTwoValuesSuccess(data));
+                    dispatch(multipliedValuesSuccess(data));
                 });
         } catch (error) {
             console.log(error);
